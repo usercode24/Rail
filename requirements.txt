@@ -1,0 +1,4 @@
+fastapi==0.104.0
+uvicorn[standard]==0.23.0
+# Optional: add if you need async database
+# databases[sqlite]==0.7.0

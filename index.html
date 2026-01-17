@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .counter {
+            font-size: 24px;
+            margin: 20px;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to My Website</h1>
+    <div class="counter">
+        Total Visits: <span id="count">Loading...</span>
+    </div>
+
+    <script>
+        // Fetch visitor count
+        fetch('/api/stats')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('count').textContent = data.total_visits;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('count').textContent = 'Error';
+            });
+    </script>
+</body>
+
+</html>
